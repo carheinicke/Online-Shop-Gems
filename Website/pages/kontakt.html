@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | Gems</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+</head>
+<body>
+
+    <!-- Header / Menüleiste -->
+    <section class="test">
+        <header class="header test">
+            <img src="../img/favicon.png" class="logo" alt="Gems Logo">
+            
+            <nav>
+    <a href="../index.html">Home</a>
+    <a href="./shop.html">Shop</a>
+    <a href="./ueber-uns.html">Über uns</a>
+    <a href="./kontakt.html">Kontakt</a>
+</nav>
+
+
+            
+            <p id="name">Gems</p>
+
+            <!-- Rechter Bereich für Icons -->
+            <div class="header-right">
+                <div class="social-icons">
+                    <!-- Instagram Link -->
+                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg class="social-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <!-- TikTok Link -->
+                    <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">
+                        <svg class="social-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Warenkorb Button -->
+                <a href="warenkorb.html" class="cart-btn" aria-label="Warenkorb">
+                    <svg class="cart-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </header>
+    </section>
+
+    <!-- Hauptinhalt der Kontaktseite -->
+    <main class="contact-main">
+        <h1 class="contact-title">Schreib uns eine Nachricht</h1>
+        
+        <div class="contact-wrapper">
+            <!-- Linke Spalte: Kontaktinformationen & Beratungsbutton -->
+            <div class="contact-info-box">
+                <h2>Verbindung aufnehmen</h2>
+                <p>Hast du Fragen zu unseren Schmuckstücken, deiner Bestellung oder suchst nach einer individuellen Anfertigung? Wir helfen dir gerne weiter!</p>
+                
+                <div class="info-details">
+                    <p><strong>E-Mail:</strong> support@gems-schmuck.de</p>
+                    <p><strong>Telefon:</strong> +49 (0) 123 456789</p>
+                    <p><strong>Atelier:</strong> Schmuckstraße 12, 10117 Berlin</p>
+                </div>
+
+                <!-- Beratungsbutton Bereich -->
+                <div class="consultation-container">
+                    <p class="consultation-text">Du wünschst dir eine persönliche Betreuung?</p>
+                    <a href="https://calendly.com" target="_blank" class="consultation-btn">
+                        Jetzt Beratungstermin buchen
+                    </a>
+                </div>
+            </div>
+
+            <!-- Rechte Spalte: Kontaktformular -->
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name-input">Name</label>
+                    <input type="text" id="name-input" name="name" required placeholder="Dein Name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email-input">E-Mail-Adresse</label>
+                    <input type="email" id="email-input" name="email" required placeholder="Deine E-Mail-Adresse">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message-input">Deine Nachricht</label>
+                    <textarea id="message-input" name="message" rows="6" required placeholder="Wie können wir dir helfen?"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Nachricht senden</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+            <a href="#">AGB</a>
+        </div>
+        <p>&copy; 2026 Gems Schmuck. Alle Rechte vorbehalten.</p>
+    </footer>
+
+</body>
+</html>

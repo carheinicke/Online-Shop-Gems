@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goldschmuck | Gems</title>
+    <!-- Globale Styles (Hintergrund, Navigation, Footer) -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- Kategorienspezifische Styles (Raster, Filter) -->
+    <link rel="stylesheet" href="kat.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+</head>
+<body>
+
+    <!-- Header / Menüleiste -->
+    <section class="test">
+        <header class="header test">
+            <img src="../img/favicon.png" class="logo" alt="Gems Logo">
+            
+         <nav>
+    <a href="../index.html">Home</a>
+    <a href="./shop.html">Shop</a>
+    <a href="./ueber-uns.html">Über uns</a>
+    <a href="./kontakt.html">Kontakt</a>
+</nav>
+
+
+            <p id="name">Gems</p>
+
+            <!-- Rechter Bereich für Icons -->
+            <div class="header-right">
+                <div class="social-icons">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg class="social-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">
+                        <svg class="social-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Warenkorb Button -->
+                <a href="warenkorb.html" class="cart-btn" aria-label="Warenkorb">
+                    <svg class="cart-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </header>
+    </section>
+
+    <!-- Hauptinhalt der Kategorie -->
+    <main class="category-main">
+        <h1 class="category-title">Unsere Gold-Kollektion</h1>
+        
+        <!-- Unterkategorie-Filter (Unterteilung laut deiner Skizze) -->
+        <div class="sub-filter-container">
+            <a href="#ohrringe" class="filter-badge">Ohrringe</a>
+            <a href="#halsketten" class="filter-badge">Halsketten</a>
+            <a href="#armschmuck" class="filter-badge">Armschmuck</a>
+            <a href="#ringe" class="filter-badge">Ringe</a>
+        </div>
+
+        <!-- Produkt-Grid -->
+        <div class="kat-product-grid">
+            
+            <!-- Produkt 1: Ohrringe -->
+            <div id="ohrringe" class="product-card">
+                <div class="product-img-wrapper">
+                    <!-- Pfad angepasst an deine Ordnerstruktur: img/Produkt-img/Gold/ -->
+                    <img src="../img/Produkt-img/Gold/ohrringe.jpg" alt="Goldene Ohrringe">
+                    <span class="product-badge">750er Gold</span>
+                </div>
+                <div class="product-info">
+                    <h3>Goldohrringe "Sol"</h3>
+                    <p class="price">129,00 €</p>
+                    <button class="add-to-cart-btn">In den Warenkorb</button>
+                </div>
+            </div>
+
+            <!-- Produkt 2: Halsketten -->
+            <div id="halsketten" class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="../img/Produkt-img/Gold/halsketten.jpg" alt="Goldene Halskette">
+                </div>
+                <div class="product-info">
+                    <h3>Halskette "Aura"</h3>
+                    <p class="price">249,00 €</p>
+                    <button class="add-to-cart-btn">In den Warenkorb</button>
+                </div>
+            </div>
+
+            <!-- Produkt 3: Armschmuck -->
+            <div id="armschmuck" class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="../img/Produkt-img/Gold/armschmuck.jpg" alt="Goldener Armschmuck">
+                </div>
+                <div class="product-info">
+                    <h3>Armband "Stella"</h3>
+                    <p class="price">189,00 €</p>
+                    <button class="add-to-cart-btn">In den Warenkorb</button>
+                </div>
+            </div>
+
+            <!-- Produkt 4: Ringe -->
+            <div id="ringe" class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="../img/Produkt-img/Gold/ringe.jpg" alt="Goldener Ring">
+                    <span class="product-badge">Beliebt</span>
+                </div>
+                <div class="product-info">
+                    <h3>Goldring "Luna"</h3>
+                    <p class="price">159,00 €</p>
+                    <button class="add-to-cart-btn">In den Warenkorb</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+            <a href="#">AGB</a>
+        </div>
+        <p>&copy; 2026 Gems Schmuck. Alle Rechte vorbehalten.</p>
+    </footer>
+
+</body>
+</html>

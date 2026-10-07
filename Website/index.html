@@ -10,47 +10,143 @@
 </head>
 <body>
    <section class="test">
-  <header class="header">
-        <img src="img/favicon.png" class="logo">
-        
+ <header class="header test">
+    <img src="img/favicon.png" class="logo" alt="Gems Logo">
+    
+<nav>
+    <a href="index.html">Home</a>
+    <a href="pages/shop.html">Shop</a>
+    <a href="pages/ueber-uns.html">Über uns</a>
+    <a href="pages/kontakt.html">Kontakt</a>
+</nav>
 
-  
-        <nav>
-    <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">Über uns</a>
-    <a href="#">Kontakt</a>
-  </nav>
-<p id="name">Gems</p>
-</section>
+
+
+    
+    <p id="name">Gems</p>
+
+    <!-- NEU: Rechter Bereich für Icons -->
+<div class="header-right">
+    <!-- Social Media Icons (Reine SVGs - farblich passend) -->
+    <div class="social-icons">
+        <!-- Instagram Link -->
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg class="social-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+        </a>
+        <!-- TikTok Link -->
+        <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg class="social-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Warenkorb Button mit Einkaufstasche -->
+    <a href="pages/warenkorb.html" class="cart-btn" aria-label="Warenkorb">
+        <svg class="cart-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="cart-badge">0</span>
+    </a>
+</div>
+
 </header>
+
+
+
 <main>
-  <h1>New in:</h1>
-  <img src="" alt="">
-  <img src="" alt="">
-  <img src="" alt="">
+   <!-- "New In" Bereich auf der Startseite -->
+<section class="new-in-section">
+    <h2 class="section-title">New In</h2>
+    
+    <div class="product-grid">
+        <!-- Produkt 1 -->
+        <div class="product-card">
+            <div class="product-img-wrapper">
+                <img src="img/produkt-ring.jpg" alt="Eleganter Silberring">
+                <span class="product-badge">Neu</span>
+            </div>
+            <div class="product-info">
+                <h3>Silberring "Luna"</h3>
+                <p class="price">49,00 €</p>
+                <button class="add-to-cart-btn">In den Warenkorb</button>
+            </div>
+        </div>
+
+        <!-- Produkt 2 -->
+        <div class="product-card">
+            <div class="product-img-wrapper">
+                <img src="img/produkt-kette.jpg" alt="Goldene Halskette">
+                <span class="product-badge">Neu</span>
+            </div>
+            <div class="product-info">
+                <h3>Halskette "Aura"</h3>
+                <p class="price">79,00 €</p>
+                <button class="add-to-cart-btn">In den Warenkorb</button>
+            </div>
+        </div>
+
+        <!-- Produkt 3 -->
+        <div class="product-card">
+            <div class="product-img-wrapper">
+                <img src="img/produkt-ohrringe.jpg" alt="Perlenohrringe">
+                <span class="product-badge">Neu</span>
+            </div>
+            <div class="product-info">
+                <h3>Perlenohrringe "Sol"</h3>
+                <p class="price">39,00 €</p>
+                <button class="add-to-cart-btn">In den Warenkorb</button>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+ 
 <!--die Bilder sich ausrollen lassen, als z-index-->
 
 
-  <h1>Über uns:</h1>
-<p>Platzhalter</p>
-<img src="" alt="">
-  
-<h2>Unser Sortiment umfasst:</h2>
-<ul>
-  <li>Ringe</li>
-  <li>Ketten</li>
-  <li>Ohrringe</li>
-  <li>Armbänder</li>
-</ul>
+
+
 
 <!--Warenkorb-Button rechts oben in die ecke,img Icon, nav, span-->
 <!--Social Media Icons rechts oben, mit @media screen usw.-->
+<!--z-index ausrollen animation transform einfügen!!!!!-->
+<section class="sortiment-section">
+  <h2 class="sortiment-title">Unser Sortiment umfasst:</h2>
+  <ul class="sortiment-list">
+    <li>Ringe</li>
+    <li>Ketten</li>
+    <li>Ohrringe</li>
+    <li>Armbänder</li>
+  </ul>
+</section>
+
+
+
+
+
+
+
+
 
 
 
 </main>
-   
+   <footer>
+    <div class="footer-links">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
+    </div>
+    <p>&copy; 2026 Gems Schmuck. Alle Rechte vorbehalten.</p>
+</footer>
+
     
 </body>
 </html>

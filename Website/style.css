@@ -1,3 +1,6 @@
+/* ==========================================
+   Globale Stile & Atem-Hintergrund
+   ========================================== */
 html {
   min-height: 100%;
   background: radial-gradient(
@@ -9,68 +12,700 @@ html {
     #aebbc0 720px,
     #c5a9a2 950px
   );
-
   background-size: 100% 100%;
   animation: breathe 12s ease-in-out infinite;
 }
 
-@keyframes breathe {
-  0%, 100% {
-    background-size: 100% 100%;
-  }
-
-  50% {
-    background-size: 115% 115%;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; /* Standard-Fallback für den normalen Text */
 }
+
+@keyframes breathe {
+  0%, 100% { background-size: 100% 100%; }
+  50% { background-size: 115% 115%; }
+}
+
+/* ==========================================
+   Header & Hauptnavigation
+   ========================================== */
+.test {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 .header {
   width: 100%;
   height: 100px;
   background: #ead8c4;
   display: flex;
   align-items: center;
-  padding: 0 25px;
+  justify-content: space-between; /* Verteilt Links, Mitte und Rechts perfekt */
+  padding: 0 40px; 
+  box-sizing: border-box;
 }
 
-.logo{
-    width: auto;
-    height: 80px;
-    display: block;
+.logo {
+  width: auto;
+  height: 80px;
+  display: block;
 }
-nav{
-  margin-left:30px ;
+
+nav {
+  margin-left: 30px;
   display: flex;
   gap: 30px;
+}
 
-}
 nav a {
-    text-decoration: none;
-    color: #4a3b35;
-    background: #f8eee3;
-    padding: 10px 18px;
-    border-radius: 20px;
-    height: fit-content;
-    width: max-content;
-    font-size: large;
-   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: #4a3b35;
+  background: #f8eee3;
+  padding: 10px 18px;
+  border-radius: 20px;
+  height: fit-content;
+  width: max-content;
+  font-size: large;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-nav a:hover{
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(70, 50, 40, 0.2);
+
+nav a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(70, 50, 40, 0.2);
 }
-#name{
+
+/* Der Name zentriert sich dank Flexbox und margin: 0 auto perfekt */
+#name {
   font-size: 90px;
-  margin-left: 400px ;
   font-family: textura;
   color: rgba(167, 169, 177, 0.842);
   font-weight: bolder;
-
+  margin: 0 auto; 
+  text-align: center;
 }
 
-.test{
-  position: sticky;
+/* ==========================================
+   Header-Rechts: Socials & Einkaufstasche
+   ========================================== */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-shrink: 0; /* Verhindert das Stauchen der Icons */
+  margin-right: 20px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease, stroke 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.15);
+  stroke: #8d7265;
+}
+
+.cart-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: #f8eee3;
+  border-radius: 50%;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.cart-btn:hover {
+  transform: translateY(-2px);
+  background: #fff9ed;
+}
+
+.cart-icon {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  background: #4a3b35;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   "New In" Bereich auf der Startseite
+   ========================================== */
+.new-in-section {
+  padding: 40px;
+}
+
+.section-title {
+  color: #4a3b35;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.product-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  background: #f8eee3;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  
+  /* Start-Zustand für das Einrollen in den originalen Rahmen */
+  opacity: 0;
+  animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Lässt die Schmuckstücke nebeneinander gestaffelt einrollen */
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.3s; }
+.product-card:nth-child(3) { animation-delay: 0.5s; }
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(70, 50, 40, 0.15);
+}
+
+.product-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.product-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #4a3b35;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+.product-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.product-info h3 {
+  margin: 0 0 10px 0;
+  color: #4a3b35;
+}
+
+.price {
+  font-weight: bold;
+  color: #8d7265;
+  margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+  background: #4a3b35;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+  background: #8d7265;
+}
+
+/* ==========================================
+   Sortiment Bereich & Einroll-Animation
+   ========================================== */
+.sortiment-section {
+  text-align: center;
+  margin: 80px auto;
+  padding: 0 40px;
+}
+
+.sortiment-title {
+  color: #4a3b35;
+  font-size: 2.2rem;
+  margin-bottom: 35px;
+}
+
+.sortiment-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.sortiment-list li {
+  background: #f8eee3;
+  color: #4a3b35;
+  padding: 22px 45px;
+  border-radius: 35px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(70, 50, 40, 0.05);
+  cursor: pointer;
+  opacity: 0;
+  animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.sortiment-list li:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 24px rgba(70, 50, 40, 0.15);
+  background: #fff9ed;
+}
+
+.sortiment-list li:nth-child(1) { animation-delay: 0.8s; }
+.sortiment-list li:nth-child(2) { animation-delay: 1.0s; }
+.sortiment-list li:nth-child(3) { animation-delay: 1.2s; }
+.sortiment-list li:nth-child(4) { animation-delay: 1.4s; }
+
+
+/* ==========================================
+   STYLING FÜR DIE ÜBER-UNS SEITE
+   ========================================== */
+.banner-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #e5daf0; /* Heller Pastell-Lila Hintergrund für das Banner */
+}
+
+/* Zwingt den Header transparent über das Banner-Bild */
+.banner-wrapper .header {
+  position: absolute;
   top: 0;
+  left: 0;
+  background: rgba(234, 216, 196, 0.85); 
+  z-index: 10;
 }
 
-    
+/* Heller, transparenter Banner-Look mit lila Hintergrundtönung */
+.page-banner {
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.75;
+  filter: brightness(1.25) contrast(0.95);
+  mix-blend-mode: multiply;
+}
 
+.about-content {
+  padding: 60px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-content h1 {
+  color: #4a3b35;
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Das 3-spaltige originale Grid-Layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+  margin-bottom: 50px;
+}
+
+.text-block p {
+  color: #4a3b35;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* REPARIERT: Atelier-Bilder wieder völlig im Originalzustand ohne lila Filter */
+.about-img, .UnserAtelier {
+  display: block;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Die drei grauen Badges */
+.badges-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.badge-item {
+  background: #aebbc0; 
+  color: #fff;
+  padding: 15px 40px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ==========================================
+   Zentrale Animationsformel
+   ========================================== */
+@keyframes rollOutFade {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/* ==========================================
+   STYLING FÜR DIE KONTAKTSEITE
+   ========================================== */
+.contact-main {
+  padding: 60px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-title {
+  color: #4a3b35;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Linke Infobox */
+.contact-info-box {
+  background: #f8eee3;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  color: #4a3b35;
+  opacity: 0;
+  animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.contact-info-box h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #4a3b35;
+}
+
+.contact-info-box p {
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.info-details {
+  margin-top: 30px;
+}
+
+.info-details p {
+  margin: 12px 0;
+}
+
+/* Rechtes Formular */
+.contact-form {
+  background: #f8eee3;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  opacity: 0;
+  animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #4a3b35;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #d9c1ad;
+  border-radius: 8px;
+  background-color: #fff9ed;
+  color: #4a3b35;
+  font-family: sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #8d7265;
+  box-shadow: 0 0 0 3px rgba(141, 114, 101, 0.2);
+}
+
+.submit-btn {
+  background: #4a3b35;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #8d7265;
+  transform: translateY(-2px);
+}
+
+/* Responsive Anpassung für Smartphones */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .contact-main {
+    padding: 40px 20px;
+  }
+}
+/* ==========================================
+   Zusatzstyling für den Beratungsbutton
+   ========================================== */
+.consultation-container {
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px dashed #d9c1ad; /* Trennlinie zum restlichen Text */
+}
+
+.consultation-text {
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.consultation-btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background: #aebbc0; /* Nutzt das harmonische Grau deiner Badges */
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(70, 50, 40, 0.05);
+}
+
+.consultation-btn:hover {
+  background: #8d7265; /* Wechselt beim Hovern zum warmen Braunton */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(70, 50, 40, 0.15);
+}
+/* ==========================================
+   STYLING FÜR DIE SHOP-ÜBERSICHT (shop.html)
+   ========================================== */
+.shop-main {
+  padding: 60px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shop-title {
+  color: #4a3b35;
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Flexibles Grid für die 3 großen Kacheln */
+.category-grid {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Basis-Design der Kacheln (Länglich, angelehnt an New In) */
+.shop-card {
+  background: #f8eee3;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 320px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  
+  /* Initialer unsichtbarer Rahmen, damit sich beim Hover nichts verschiebt */
+  border: 3px solid transparent; 
+  
+  /* Gestaffeltes Einrollen wie bei den Produkten */
+  opacity: 0;
+  animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Einroll-Verzögerung für die 3 Kacheln */
+.shop-card:nth-child(1) { animation-delay: 0.1s; }
+.shop-card:nth-child(2) { animation-delay: 0.3s; }
+.shop-card:nth-child(3) { animation-delay: 0.5s; }
+
+.shop-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 340px; /* Längliches Hochformat */
+  overflow: hidden;
+}
+
+.shop-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.shop-card-info {
+  padding: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.shop-card-info h2 {
+  margin: 0 0 10px 0;
+  color: #4a3b35;
+  font-size: 1.8rem;
+}
+
+.shop-card-info p {
+  color: #8d7265;
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+/* Kleiner dezenter Button-Hinweis in der Kachel */
+.shop-explore-btn {
+  background: #4a3b35;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+/* Generalisierter Hover-Effekt: Karte hebt sich, Bild zoomt */
+.shop-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(70, 50, 40, 0.15);
+}
+
+.shop-card:hover .shop-img-wrapper img {
+  transform: scale(1.06);
+}
+
+.shop-card:hover .shop-explore-btn {
+  background: #8d7265;
+}
+
+/* ==========================================
+   METALLIC-HOVER-EFFEKTE (DEINE SPEZIALWÜNSCHE)
+   ========================================== */
+
+/* Gold-Kachel Hover: Warmer Gold-Glow Rahmen */
+.card-gold:hover {
+  border-color: #d4af37; 
+  box-shadow: 0 12px 25px rgba(212, 175, 55, 0.25);
+}
+
+/* Silber-Kachel Hover: Heller, kühler Silber/Chrom-Glow Rahmen */
+.card-silver:hover {
+  border-color: #c0c0c0;
+  box-shadow: 0 12px 25px rgba(192, 192, 192, 0.35);
+}
+
+/* Steel-Kachel Hover: Dunklerer, metallischer Anthrazit/Stahl Rahmen */
+.card-steel:hover {
+  border-color: #708090;
+  box-shadow: 0 12px 25px rgba(112, 128, 144, 0.25);
+}
+
+/* Responsive Anpassung */
+@media (max-width: 768px) {
+  .shop-main {
+    padding: 40px 20px;
+  }
+  .category-grid {
+    gap: 30px;
+  }
+}

@@ -1,0 +1,76 @@
+/* ==========================================
+   CSS FÜR DIE MATERIAL-KATEGORIEN (kat.css)
+   ========================================== */
+
+.category-main {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-title {
+  color: #4a3b35;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Unterkategorie-Filter (Ohrringe, Ketten, etc.) */
+.sub-filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.filter-badge {
+  text-decoration: none;
+  background: #f8eee3;
+  color: #4a3b35;
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(70, 50, 40, 0.05);
+}
+
+.filter-badge:hover {
+  background: #fff9ed;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(70, 50, 40, 0.12);
+}
+
+/* Flexibles Produkt-Raster für Kategorien */
+.kat-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  justify-items: center;
+}
+
+/* Nutzung deiner bestehenden Einroll-Animation gestaffelt für Kategorien */
+.kat-product-grid .product-card {
+  opacity: 0;
+  animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.kat-product-grid .product-card:nth-child(1) { animation-delay: 0.1s; }
+.kat-product-grid .product-card:nth-child(2) { animation-delay: 0.2s; }
+.kat-product-grid .product-card:nth-child(3) { animation-delay: 0.3s; }
+.kat-product-grid .product-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive Optimierung für kleinere Bildschirme */
+@media (max-width: 600px) {
+  .category-main {
+    padding: 20px 15px;
+  }
+  .sub-filter-container {
+    gap: 10px;
+  }
+  .filter-badge {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
