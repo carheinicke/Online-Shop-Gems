@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vielen Dank für deine Bestellung | Gems</title>
+    <!-- Lädt deine globale CSS für Header/Footer/Hintergrund -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+</head>
+<body>
+
+    <!-- Header / Menüleiste -->
+    <header class="header">
+        <img src="../img/favicon.png" class="logo" alt="Gems Logo">
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="./shop.html">Shop</a>
+            <a href="./ueber-uns.html">Über uns</a>
+            <a href="./kontakt.html">Kontakt</a>
+        </nav>
+        <p id="name">Gems</p>
+        <div class="header-right">
+            <a href="warenkorb.html" class="cart-btn" aria-label="Warenkorb">
+                <svg class="cart-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span class="cart-badge">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hauptinhalt der Erfolgsseite -->
+    <main class="contact-main" style="max-width: 600px;">
+        <!-- Die Box nutzt deine originale rollOutFade-Animation aus dem CSS -->
+        <div class="contact-info-box" style="text-align: center; padding: 50px 30px; opacity: 1;">
+            <!-- Edles, feines Häkchen-Symbol -->
+            <svg style="width: 70px; height: 70px; stroke: #8d7265; stroke-width: 1.5; fill: none; margin-bottom: 25px; display: inline-block;" xmlns="http://w3.org" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            
+            <h1 style="color: #4a3b35; font-size: 2.2rem; margin-bottom: 15px; font-weight: 500;">Magische Momente warten</h1>
+            <p style="color: #4a3b35; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px;">
+                Vielen Dank für deine Bestellung bei Gems! Wir haben dir eine Bestätigung per E-Mail gesendet. Dein Schmuckstück wird nun mit Liebe im Atelier verpackt.
+            </p>
+            
+            <a href="../index.html" class="submit-btn" style="text-decoration: none; display: inline-block; width: auto; padding: 12px 40px;">Zur Startseite</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+            <a href="#">AGB</a>
+        </div>
+        <p>&copy; 2026 Gems Schmuck. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <!-- JavaScript für das Badge -->
+    <script src="cart.js"></script>
+</body>
+</html>

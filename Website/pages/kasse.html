@@ -1,38 +1,135 @@
 <!--Reines HTML & CSS (Ohne JavaScript)Du kannst Filter komplett ohne Programmierlogik bauen, indem du CSS-Techniken wie das :checked-Attribut von Checkboxen oder Radio-Buttons nutzt.Wie es funktioniert: Jedes Produkt bekommt im HTML bestimmte Klassen (z. B. class="produkt ring" oder class="produkt silber"). Wenn ein Kunde auf den Filter „Ringe“ klickt, blendet das CSS über Selektoren alle Elemente aus, die diese Klasse nicht haben.Vorteil: Extrem schnell, unkompliziert zu schreiben und du musst keine neue Sprache lernen.Nachteil: Bei sehr vielen Produkten (über 50–100) wird der HTML-Code irgendwann unübersichtlich.-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kasse | Gems</title>
+    <!-- Lädt deine globale CSS für Header/Footer/Hintergrund -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
 </head>
-<header class="header test">
-    <img src="../img/favicon.png" class="logo" alt="Gems Logo">
-    
-    <nav>
-    <a href="../index.html">Home</a>
-    <a href="./shop.html">Shop</a>
-    <a href="./ueber-uns.html">Über uns</a>
-    <a href="./kontakt.html">Kontakt</a>
-</nav>
-
-    
-    <p id="name">Gems</p>
-
-    <div class="header-right">
-        <div class="social-icons">
-            <a href="#" aria-label="Instagram"><img src="https://placehold.co" alt=""></a>
-            <a href="#" aria-label="TikTok"><img src="https://placehold.co" alt=""></a>
-        </div>
-        
-        <a href="warenkorb.html" class="cart-btn">
-            <img src="https://placehold.co🛒" alt="Warenkorb">
-            <span class="cart-badge">0</span>
-        </a>
-    </div>
-</header>
-
 <body>
-    
+
+    <!-- Header / Menüleiste (Korrigiert innerhalb des Bodys) -->
+    <header class="header">
+        <img src="../img/favicon.png" class="logo" alt="Gems Logo">
+        
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="./shop.html">Shop</a>
+            <a href="./ueber-uns.html">Über uns</a>
+            <a href="./kontakt.html">Kontakt</a>
+        </nav>
+
+        <p id="name">Gems</p>
+
+        <!-- Rechter Bereich für Icons -->
+        <div class="header-right">
+            <div class="social-icons">
+                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg class="social-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">
+                    <svg class="social-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Warenkorb Button -->
+            <a href="warenkorb.html" class="cart-btn" aria-label="Warenkorb">
+                <svg class="cart-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="#4a3b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span class="cart-badge">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hauptinhalt der Kasse -->
+    <main class="contact-main" style="max-width: 900px;">
+        <h1 class="contact-title">Bestellung abschließen</h1>
+        
+        <!-- Wir nutzen hier das zweispaltige Grid deiner Kontaktseite für ein harmonisches Design -->
+        <div class="contact-wrapper" style="grid-template-columns: 1.2fr 1fr;">
+            
+            <!-- Linke Spalte: Rechnungs- & Lieferadresse -->
+            <form class="contact-form" onsubmit="handleCheckout(event)" style="opacity: 1; animation: none;">
+
+                <h2 style="color: #4a3b35; margin-top: 0; margin-bottom: 20px;">Deine Lieferadresse</h2>
+                
+                <div style="display: flex; gap: 15px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label Merlin for="vorname">Vorname</label>
+                        <input type="text" id="vorname" required placeholder="Max">
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label for="nachname">Nachname</label>
+                        <input type="text" id="nachname" required placeholder="Mustermann">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strasse">Straße und Hausnummer</label>
+                    <input type="text" id="strasse" required placeholder="Hauptstraße 12">
+                </div>
+
+                <div style="display: flex; gap: 15px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label for="plz">PLZ</label>
+                        <input type="text" id="plz" required placeholder="10117">
+                    </div>
+                    <div class="form-group" style="flex: 2;">
+                        <label for="ort">Ort</label>
+                        <input type="text" id="ort" required placeholder="Berlin">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="checkout-email">E-Mail für die Bestätigung</label>
+                    <input type="email" id="checkout-email" required placeholder="max@mustermann.de">
+                </div>
+
+                <button type="submit" class="submit-btn" style="margin-top: 10px;">Jetzt kostenpflichtig bestellen</button>
+            </form>
+
+            <!-- Rechte Spalte: Bestellübersicht (Zusammenfassung) -->
+            <div class="contact-info-box" style="opacity: 1; animation: none;">
+                <h2 style="margin-top: 0;">Deine Bestellung</h2>
+                
+                <!-- Dieser Container wird später per JS mit den Produkten befüllt -->
+                <div id="checkout-summary" style="margin-bottom: 20px;">
+                    <p style="font-style: italic;">Warenkorb wird geladen...</p>
+                </div>
+                
+                <div style="border-top: 1px dashed #d9c1ad; padding-top: 15px; margin-top: 15px;">
+                    <p style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: bold;">
+                        <span>Gesamtsumme:</span>
+                        <span id="checkout-total">0,00 €</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+            <a href="#">AGB</a>
+        </div>
+        <p>&copy; 2026 Gems Schmuck. Alle Rechte保留.</p>
+    </footer>
+
+   <script src="cart.js"></script>
 </body>
 </html>

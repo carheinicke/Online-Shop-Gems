@@ -54,12 +54,64 @@
 .kat-product-grid .product-card {
   opacity: 0;
   animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  
+  /* Definiert den flüssigen Übergang für das neue Luxus-Hovern */
+  border: 3px solid transparent;
+  transition: 
+    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+    box-shadow 0.4s ease, 
+    border-color 0.4s ease, 
+    filter 0.4s ease;
 }
 
 .kat-product-grid .product-card:nth-child(1) { animation-delay: 0.1s; }
 .kat-product-grid .product-card:nth-child(2) { animation-delay: 0.2s; }
 .kat-product-grid .product-card:nth-child(3) { animation-delay: 0.3s; }
 .kat-product-grid .product-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Base Hover-Bewegung nach oben für ALLE Karten */
+.kat-product-grid .product-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ==========================================
+   NEU: GETRENNTE METALLIC-HOVER FÜR DIE KATEGORIEN
+   ========================================== */
+
+/* Gold-Seite Hover (Warmes Gold-Glühen) */
+.kat-gold .product-card:hover {
+  border-color: #ffd700; 
+  filter: brightness(1.08) contrast(1.03); 
+  box-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.3),  
+    0 0 22px rgba(212, 175, 55, 0.5),  
+    0 15px 30px rgba(70, 50, 40, 0.2); 
+}
+
+/* Silber-Seite Hover (Kühler, weiß-silberner Diamant-Glow) */
+.kat-silver .product-card:hover {
+  border-color: #e0e0e0;
+  filter: brightness(1.12) contrast(1.05); 
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.5),  
+    0 0 22px rgba(192, 192, 192, 0.6),  
+    0 15px 30px rgba(40, 45, 50, 0.2); 
+}
+
+/* Steel-Seite Hover (Dunkler, moderner Anthrazit-Stahl-Glow) */
+.kat-steel .product-card:hover {
+  border-color: #a1b5cc;
+  filter: brightness(1.06) contrast(1.03); 
+  box-shadow: 
+    0 0 8px rgba(161, 181, 204, 0.4),  
+    0 0 22px rgba(112, 128, 144, 0.5),  
+    0 15px 30px rgba(30, 35, 40, 0.22); 
+}
+
+/* Verleiht den Produkttiteln beim Hovern feine Tiefe */
+.kat-product-grid .product-card:hover .product-info h3 {
+  text-shadow: 0 2px 4px rgba(70, 50, 40, 0.1);
+}
 
 /* Responsive Optimierung für kleinere Bildschirme */
 @media (max-width: 600px) {
