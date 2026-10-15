@@ -1,10 +1,6 @@
-/* ==========================================
-   GEMS SCHMUCK - VOLLSTÄNDIGES STYLESHEET
-   ========================================== */
+/* Vollständiges Style-Sheet Gems */
 
-/* ==========================================
-   Globale Stile & Atem-Hintergrund
-   ========================================== */
+/* Globale Stile & Atem-Hintergrund*/
 html {
   min-height: 100%;
   background: radial-gradient(
@@ -31,9 +27,7 @@ body {
   50% { background-size: 115% 115%; }
 }
 
-/* ==========================================
-   Header & Hauptnavigation
-   ========================================== */
+/* Header und Navigation */
 .header {
   position: sticky;
   top: 0;
