@@ -1,4 +1,8 @@
 /* ==========================================
+   GEMS SCHMUCK - VOLLSTÄNDIGES STYLESHEET
+   ========================================== */
+
+/* ==========================================
    Globale Stile & Atem-Hintergrund
    ========================================== */
 html {
@@ -30,19 +34,16 @@ body {
 /* ==========================================
    Header & Hauptnavigation
    ========================================== */
-.test {
+.header {
   position: sticky;
   top: 0;
   z-index: 100;
-}
-
-.header {
   width: 100%;
   height: 100px;
   background: #ead8c4;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Verteilt Links, Mitte und Rechts perfekt */
+  justify-content: space-between; 
   padding: 0 40px; 
   box-sizing: border-box;
 }
@@ -76,7 +77,6 @@ nav a:hover {
   box-shadow: 0 6px 12px rgba(70, 50, 40, 0.2);
 }
 
-/* Der Name zentriert sich dank Flexbox und margin: 0 auto perfekt */
 #name {
   font-size: 90px;
   font-family: textura;
@@ -93,7 +93,7 @@ nav a:hover {
   display: flex;
   align-items: center;
   gap: 25px;
-  flex-shrink: 0; /* Verhindert das Stauchen der Icons */
+  flex-shrink: 0; 
   margin-right: 20px;
 }
 
@@ -159,6 +159,36 @@ nav a:hover {
 }
 
 /* ==========================================
+   Spotify Radio Sidebar
+   ========================================== */
+.radio-sidebar {
+  position: absolute;  
+  top: 120px;          /* Sitzt perfekt direkt unter dem Header */
+  right: 40px;         
+  width: 320px;        
+  z-index: 90;        
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(74, 59, 53, 0.1); 
+  transition: transform 0.3s ease;
+}
+
+.radio-sidebar:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .radio-sidebar {
+    position: relative;
+    top: 20px;
+    right: 0;
+    margin: 0 auto 40px auto;
+    width: calc(100% - 80px);
+    max-width: 500px;
+  }
+}
+
+/* ==========================================
    "New In" Bereich auf der Startseite
    ========================================== */
 .new-in-section {
@@ -185,14 +215,11 @@ nav a:hover {
   overflow: hidden;
   width: 280px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  
-  /* Start-Zustand für das Einrollen in den originalen Rahmen */
   opacity: 0;
   animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Lässt die Schmuckstücke nebeneinander gestaffelt einrollen */
 .product-card:nth-child(1) { animation-delay: 0.1s; }
 .product-card:nth-child(2) { animation-delay: 0.3s; }
 .product-card:nth-child(3) { animation-delay: 0.5s; }
@@ -256,7 +283,7 @@ nav a:hover {
 }
 
 /* ==========================================
-   Sortiment Bereich & Einroll-Animation
+   Sortiment Bereich & Einroll-Animation (Originaler List-Look)
    ========================================== */
 .sortiment-section {
   text-align: center;
@@ -304,18 +331,15 @@ nav a:hover {
 .sortiment-list li:nth-child(3) { animation-delay: 1.2s; }
 .sortiment-list li:nth-child(4) { animation-delay: 1.4s; }
 
-
 /* ==========================================
-   STYLING FÜR DIE ÜBER-UNS SEITE
+   STYLING FÜR DIE ÜBER-UNS SEITE & FOTOKARUSSELL
    ========================================== */
 .banner-wrapper {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: #e5daf0; /* Heller Pastell-Lila Hintergrund für das Banner */
 }
 
-/* Zwingt den Header transparent über das Banner-Bild */
 .banner-wrapper .header {
   position: absolute;
   top: 0;
@@ -324,16 +348,13 @@ nav a:hover {
   z-index: 10;
 }
 
-/* Heller, transparenter Banner-Look mit lila Hintergrundtönung */
 .page-banner {
   display: block;
   width: 100%;
   height: 400px;
   object-fit: cover;
   object-position: center;
-  opacity: 0.75;
-  filter: brightness(1.25) contrast(0.95);
-  mix-blend-mode: multiply;
+  opacity: 0.8;
 }
 
 .about-content {
@@ -349,13 +370,22 @@ nav a:hover {
   margin-bottom: 40px;
 }
 
-/* Das 3-spaltige originale Grid-Layout */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
   align-items: start;
   margin-bottom: 50px;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.text-block {
+  grid-column: span 2; /* Der neue philosophische Text bekommt Platz */
 }
 
 .text-block p {
@@ -365,22 +395,66 @@ nav a:hover {
   margin-bottom: 20px;
 }
 
-/* REPARIERT: Atelier-Bilder wieder völlig im Originalzustand ohne lila Filter */
-.about-img, .UnserAtelier {
-  display: block;
+/* Atelier Fotokarussell-Container */
+.carousel-container {
+  position: relative;
   width: 100%;
   height: 350px;
-  object-fit: cover;
   border-radius: 15px;
+  overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Die drei grauen Badges */
+.carousel-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeEffect 0.6s ease-in-out;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(248, 238, 227, 0.8);
+  color: #4a3b35;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  z-index: 5;
+}
+
+.carousel-btn:hover {
+  background: #4a3b35;
+  color: #fff;
+}
+
+.carousel-btn.prev { left: 15px; }
+.carousel-btn.next { right: 15px; }
+
+@keyframes fadeEffect {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
 .badges-container {
   display: flex;
   justify-content: center;
   gap: 40px;
   margin-top: 40px;
+  flex-wrap: wrap;
 }
 
 .badge-item {
@@ -393,20 +467,6 @@ nav a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-
-/* ==========================================
-   Zentrale Animationsformel
-   ========================================== */
-@keyframes rollOutFade {
-  0% {
-    opacity: 0;
-    transform: translateY(40px) scale(0.85);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
 /* ==========================================
    STYLING FÜR DIE KONTAKTSEITE
    ========================================== */
@@ -430,7 +490,6 @@ nav a:hover {
   align-items: start;
 }
 
-/* Linke Infobox */
 .contact-info-box {
   background: #f8eee3;
   padding: 40px;
@@ -461,251 +520,242 @@ nav a:hover {
   margin: 12px 0;
 }
 
-/* Rechtes Formular */
 .contact-form {
   background: #f8eee3;
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   opacity: 0;
-  animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  animation-delay: 0.4s;
+animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+animation-delay: 0.4s;
 }
-
 .form-group {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+margin-bottom: 20px;
+display: flex;
+flex-direction: column;
+gap: 8px;
 }
-
 .form-group label {
-  color: #4a3b35;
-  font-weight: 500;
+color: #4a3b35;
+font-weight: 500;
 }
-
 .form-group input,
 .form-group textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #d9c1ad;
-  border-radius: 8px;
-  background-color: #fff9ed;
-  color: #4a3b35;
-  font-family: sans-serif;
-  font-size: 1rem;
-  box-sizing: border-box;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+width: 100%;
+padding: 12px 15px;
+border: 1px solid #d9c1ad;
+border-radius: 8px;
+background-color: #fff9ed;
+color: #4a3b35;
+font-family: sans-serif;
+font-size: 1rem;
+box-sizing: border-box;
+transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-
 .form-group input:focus,
 .form-group textarea:focus {
-  outline: none;
-  border-color: #8d7265;
-  box-shadow: 0 0 0 3px rgba(141, 114, 101, 0.2);
+outline: none;
+border-color: #8d7265;
+box-shadow: 0 0 0 3px rgba(141, 114, 101, 0.2);
 }
-
 .submit-btn {
-  background: #4a3b35;
-  color: #fff;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  width: 100%;
-  transition: background 0.2s ease, transform 0.2s ease;
+background: #4a3b35;
+color: #fff;
+border: none;
+padding: 14px 28px;
+border-radius: 25px;
+cursor: pointer;
+font-size: 1rem;
+font-weight: 500;
+width: 100%;
+transition: background 0.2s ease, transform 0.2s ease;
 }
-
 .submit-btn:hover {
-  background: #8d7265;
-  transform: translateY(-2px);
+background: #8d7265;
+transform: translateY(-2px);
 }
-
-/* Responsive Anpassung für Smartphones */
 @media (max-width: 768px) {
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-  }
-  .contact-main {
-    padding: 40px 20px;
-  }
+.contact-wrapper {
+grid-template-columns: 1fr;
 }
-/* ==========================================
-   Zusatzstyling für den Beratungsbutton
-   ========================================== */
+.contact-main {
+padding: 40px 20px;
+}
+}
 .consultation-container {
-  margin-top: 35px;
-  padding-top: 25px;
-  border-top: 1px dashed #d9c1ad; /* Trennlinie zum restlichen Text */
+margin-top: 35px;
+padding-top: 25px;
+border-top: 1px dashed #d9c1ad;
 }
-
 .consultation-text {
-  font-weight: 500;
-  margin-bottom: 12px;
+font-weight: 500;
+margin-bottom: 12px;
 }
-
 .consultation-btn {
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  background: #aebbc0; /* Nutzt das harmonische Grau deiner Badges */
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-size: 1rem;
-  font-weight: 500;
-  width: 100%;
-  box-sizing: border-box;
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 10px rgba(70, 50, 40, 0.05);
+display: inline-block;
+text-align: center;
+text-decoration: none;
+background: #aebbc0;
+color: #fff;
+padding: 12px 24px;
+border-radius: 25px;
+font-size: 1rem;
+font-weight: 500;
+width: 100%;
+box-sizing: border-box;
+transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+box-shadow: 0 4px 10px rgba(70, 50, 40, 0.05);
 }
-
 .consultation-btn:hover {
-  background: #8d7265; /* Wechselt beim Hovern zum warmen Braunton */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(70, 50, 40, 0.15);
+background: #8d7265;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(70, 50, 40, 0.15);
 }
 /* ==========================================
-   STYLING FÜR DIE SHOP-ÜBERSICHT (shop.html)
-   ========================================== */
+STYLING FÜR DIE SHOP-ÜBERSICHT (shop.html)
+========================================== */
 .shop-main {
-  padding: 60px 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+padding: 60px 40px;
+max-width: 1200px;
+margin: 0 auto;
 }
-
 .shop-title {
-  color: #4a3b35;
-  font-size: 2.8rem;
-  text-align: center;
-  margin-bottom: 50px;
+color: #4a3b35;
+font-size: 2.8rem;
+text-align: center;
+margin-bottom: 50px;
 }
-
-/* Flexibles Grid für die 3 großen Kacheln */
 .category-grid {
-  display: flex;
-  gap: 40px;
-  justify-content: center;
-  flex-wrap: wrap;
+display: flex;
+gap: 40px;
+justify-content: center;
+flex-wrap: wrap;
 }
-
-/* Basis-Design der Kacheln (Länglich, angelehnt an New In) */
 .shop-card {
-  background: #f8eee3;
-  border-radius: 15px;
-  overflow: hidden;
-  width: 320px;
-  text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  
-  /* Initialer unsichtbarer Rahmen, damit sich beim Hover nichts verschiebt */
-  border: 3px solid transparent; 
-  
-  /* Gestaffeltes Einrollen wie bei den Produkten */
-  opacity: 0;
-  animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+background: #f8eee3;
+border-radius: 15px;
+overflow: hidden;
+width: 320px;
+text-decoration: none;
+box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+display: flex;
+flex-direction: column;
+box-sizing: border-box;
+border: 3px solid transparent;
+opacity: 0;
+animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-
-/* Einroll-Verzögerung für die 3 Kacheln */
 .shop-card:nth-child(1) { animation-delay: 0.1s; }
 .shop-card:nth-child(2) { animation-delay: 0.3s; }
 .shop-card:nth-child(3) { animation-delay: 0.5s; }
-
 .shop-img-wrapper {
-  position: relative;
-  width: 100%;
-  height: 340px; /* Längliches Hochformat */
-  overflow: hidden;
+position: relative;
+width: 100%;
+height: 340px;
+overflow: hidden;
 }
-
 .shop-img-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.4s ease;
 }
-
 .shop-card-info {
-  padding: 25px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+padding: 25px;
+text-align: center;
+display: flex;
+flex-direction: column;
+flex-grow: 1;
 }
-
 .shop-card-info h2 {
-  margin: 0 0 10px 0;
-  color: #4a3b35;
-  font-size: 1.8rem;
+margin: 0 0 10px 0;
+color: #4a3b35;
+font-size: 1.8rem;
 }
-
 .shop-card-info p {
-  color: #8d7265;
-  font-size: 1rem;
-  margin: 0 0 20px 0;
-  line-height: 1.4;
-  flex-grow: 1;
+color: #8d7265;
+font-size: 1rem;
+margin: 0 0 20px 0;
+line-height: 1.4;
+flex-grow: 1;
 }
-
-/* Kleiner dezenter Button-Hinweis in der Kachel */
 .shop-explore-btn {
-  background: #4a3b35;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
+background: #4a3b35;
+color: #fff;
+padding: 10px 20px;
+border-radius: 20px;
+font-size: 0.9rem;
+font-weight: 500;
+transition: background-color 0.2s ease;
 }
-
-/* Generalisierter Hover-Effekt: Karte hebt sich, Bild zoomt */
 .shop-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(70, 50, 40, 0.15);
+transform: translateY(-8px);
+box-shadow: 0 12px 25px rgba(70, 50, 40, 0.15);
 }
-
 .shop-card:hover .shop-img-wrapper img {
-  transform: scale(1.06);
+transform: scale(1.06);
 }
-
 .shop-card:hover .shop-explore-btn {
-  background: #8d7265;
+background: #8d7265;
 }
-
-/* ==========================================
-   METALLIC-HOVER-EFFEKTE (DEINE SPEZIALWÜNSCHE)
-   ========================================== */
-
-/* Gold-Kachel Hover: Warmer Gold-Glow Rahmen */
+/* METALLIC-HOVER-EFFEKTE */
 .card-gold:hover {
-  border-color: #d4af37; 
-  box-shadow: 0 12px 25px rgba(212, 175, 55, 0.25);
+border-color: #d4af37;
+box-shadow: 0 12px 25px rgba(212, 175, 55, 0.25);
 }
-
-/* Silber-Kachel Hover: Heller, kühler Silber/Chrom-Glow Rahmen */
 .card-silver:hover {
-  border-color: #c0c0c0;
-  box-shadow: 0 12px 25px rgba(192, 192, 192, 0.35);
+border-color: #c0c0c0;
+box-shadow: 0 12px 25px rgba(192, 192, 192, 0.35);
 }
-
-/* Steel-Kachel Hover: Dunklerer, metallischer Anthrazit/Stahl Rahmen */
 .card-steel:hover {
-  border-color: #708090;
-  box-shadow: 0 12px 25px rgba(112, 128, 144, 0.25);
+border-color: #708090;
+box-shadow: 0 12px 25px rgba(112, 128, 144, 0.25);
 }
-
-/* Responsive Anpassung */
 @media (max-width: 768px) {
-  .shop-main {
-    padding: 40px 20px;
-  }
-  .category-grid {
-    gap: 30px;
-  }
+.shop-main {
+padding: 40px 20px;
+}
+.category-grid {
+gap: 30px;
+}
+}
+/* ==========================================
+Zentrale Animationsformel
+========================================== */
+@keyframes rollOutFade {
+0% {
+opacity: 0;
+transform: translateY(40px) scale(0.85);
+}
+100% {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
+}
+footer {
+text-align: center;
+padding: 40px 20px;
+background: rgba(74, 59, 53, 0.03);
+border-top: 1px solid rgba(74, 59, 53, 0.05);
+}
+.footer-links {
+display: flex;
+justify-content: center;
+gap: 30px;
+margin-bottom: 15px;
+}
+.footer-links a {
+color: #8d7265;
+text-decoration: none;
+font-size: 0.9rem;
+transition: color 0.2s ease;
+}
+.footer-links a:hover {
+color: #4a3b35;
+}
+footer p {
+font-size: 0.85rem;
+color: #a09088;
+margin: 0;
 }

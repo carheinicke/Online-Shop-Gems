@@ -14,8 +14,8 @@
     <!-- Banner-Bereich inklusive Menüleiste -->
     <div class="banner-wrapper">
 
-        <!-- Header -->
-        <header class="header test">
+        <!-- Header (Kombiniert mit deinem fehlerfreien CSS) -->
+        <header class="header">
 
             <img src="../img/favicon.png" class="logo" alt="Gems Logo">
 
@@ -137,24 +137,29 @@
             <div class="text-block">
 
                 <p>
-                    Willkommen bei Gems! Wir kreieren einzigartige Schmuckstücke,
-                    die deine Persönlichkeit unterstreichen. Unsere Ringe, Ketten,
-                    Ohrringe und Armbänder werden mit Liebe zum Detail entworfen
-                    und gefertigt.
+                    Schmuck ist für uns weit mehr als ein schmückendes Accessoire. Er ist eine physische Projektion unseres tiefsten Inneren – ein stiller, aber kraftvoller Ausdruck von Identität, Brüchen, Sehnsüchten und gelebten Geschichten. In einer Epoche der unaufhaltsamen Beschleunigung und des flüchtigen Konsums setzen wir mit <strong>Gems</strong> bewusst auf das Bleibende. Jedes Edelmetall, das wir formen, hat eine Jahrmillionen alte Reise hinter sich. Jede Silhouette, die an unserem Werktisch Gestalt annimmt, fängt einen vergänglichen Gedanken ein und gießt ihn in zeitlose Materie.
                 </p>
 
                 <p>
-                    Erfahre mehr über unsere Philosophie und wie wir Tradition
-                    mit modernem Design verbinden, um zeitlose Accessoires
-                    für jeden Tag zu schaffen.
+                    Unsere Arbeit im Atelier begreifen wir als einen behutsamen Dialog zwischen den Gegebenheiten der Natur und der Präzision des Handwerks. Wir zwingen den Elementen keine künstliche, sterile Makellosigkeit auf; vielmehr versuchen wir, den inhärenten Charakter, Ecken und Strukturen des Materials herauszuarbeiten. Ein Schmuckstück von Gems soll dich nicht maskieren oder verkleiden. Es soll als persönlicher Talisman fungieren, der sich sanft an deine Haut schmiegt und dich jeden Tag an das erinnert, was dich im Kern ausmacht: Stärke, Individualität und ungeschönte Authentizität.
+                </p>
+
+                <p>
+                    Gems entspringt der tiefen Überzeugung, dass wahrer Luxus nicht im Protz liegt, sondern in der bewussten Zuwendung. Es ist die Wertschätzung für den stillen Transformationsprozess, bei dem aus rohem Rohstoff durch Feuer, Geduld und Schweiß ein Einzelstück mit Seele entsteht. Erst durch dein Tragen, deine Erlebnisse und deine Spuren wird unsere Arbeit wirklich vollendet und schreibt ihre Geschichte weiter.
                 </p>
 
             </div>
 
-            <!-- Bild aus dem Atelier -->
-            <img src="../img/woman-making-ring.jpg"
-                 class="UnserAtelier"
-                 alt="Schmuckherstellung">
+            <!-- REPARIERT: Fotokarussell exakt an der ursprünglichen Stelle des Atelier-Bildes -->
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="changeSlide(-1)" aria-label="Vorheriges Bild">&#10094;</button>
+                
+                <img src="../img/woman-making-ring.jpg" class="carousel-slide active" alt="Schmuckherstellung im Atelier">
+                <img src="../img/atelier-detail.jpg" class="carousel-slide" alt="Werkzeuge und Goldschmiedetisch">
+                <img src="../img/schmuck-prozess.jpg" class="carousel-slide" alt="Feinschliff und Detailarbeit">
+                
+                <button class="carousel-btn next" onclick="changeSlide(1)" aria-label="Nächstes Bild">&#10095;</button>
+            </div>
 
         </div>
 
@@ -163,20 +168,39 @@
         <div class="badges-container">
 
             <div class="badge-item">
-                Transparenz
+                Ehrliche Transparenz
             </div>
 
             <div class="badge-item">
-                Ethisch
+                Ethisches Handwerk
             </div>
 
             <div class="badge-item">
-                Nachhaltig
+                Radikale Nachhaltigkeit
             </div>
 
         </div>
 
     </main>
-<script src="cart.js"></script>
+
+    <!-- Warenkorb-Skript -->
+    <script src="cart.js"></script>
+
+    <!-- Karussell-Logik-Skript -->
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+
+        function changeSlide(direction) {
+            // Aktuelle Folie ausblenden
+            slides[currentSlideIndex].classList.remove('active');
+            
+            // Index neu berechnen (mit sicherem Loop in beide Richtungen)
+            currentSlideIndex = (currentSlideIndex + direction + slides.length) % slides.length;
+            
+            // Neue Folie einblenden
+            slides[currentSlideIndex].classList.add('active');
+        }
+    </script>
 </body>
 </html>
