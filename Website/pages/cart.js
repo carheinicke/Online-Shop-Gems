@@ -1,42 +1,39 @@
-// ==========================================
-// GEMS SCHMUCK - GLOBALE WARENKORB LOGIK (cart.js)
-// ==========================================
+
+/* Warenkorb der Website */ 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Zähler im Header auf jeder Seite beim Laden aktualisieren
+    /* 1. Zähler im Header auf jeder Seite beim Laden aktualisieren */
     updateCartBadge();
 
-    // 2. Logik für die Produktseiten ("In den Warenkorb"-Buttons)
+    /* 2. Logik für die Produktseiten ("In den Warenkorb"-Buttons) */
     initAddToCartLogic();
 
-    // 3. Logik für die Warenkorb-Seite (falls wir uns auf warenkorb.html befinden)
+    /* 3. Logik für die Warenkorb-Seite (falls wir uns auf warenkorb.html befinden) */
     if (document.getElementById("cart-container")) {
         renderCartPage();
     }
 
-    // 4. Logik für die Kassen-Seite (falls wir uns auf kasse.html befinden)
+    /* 4. Logik für die Kassen-Seite (falls wir uns auf kasse.html befinden) */
     if (document.getElementById("checkout-summary")) {
         renderCheckoutSummary();
     }
 });
 
-// ==========================================
-// HILFSFUNKTION: PREIS-TEXT IN ZAHL UMWANDELN
-// ==========================================
+// Hilfsfunktion: PREIS-TEXT IN ZAHL UMWANDELN
 // Wandelt Formate wie "129,00 €" oder "49,00" sicher in eine JavaScript-Zahl um
 function parsePriceToFloat(priceString) {
     if (!priceString) return 0;
     // Entfernt Euro-Zeichen, Leerzeichen und Punkte (Tausendertrenner, falls vorhanden)
     let cleaned = priceString.replace('€', '').replace(/\s/g, '').replace(/\./g, '');
-    // Ersetzt das deutsche Komma durch einen mathematischen Punkt
+    // Ersetzt dt. Komma durch einen Punkt
     cleaned = cleaned.replace(',', '.');
     let number = parseFloat(cleaned);
     return isNaN(number) ? 0 : number;
 }
 
-// ==========================================
-// LOGIK: PRODUKTE HINZUFÜGEN
-// ==========================================
+
+/* Produkte hinzufügen */
+
 function initAddToCartLogic() {
     const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
     
@@ -71,9 +68,9 @@ function initAddToCartLogic() {
     });
 }
 
-// ==========================================
-// LOGIK: WARENKORB-SEITE RENDERN
-// ==========================================
+
+/* Warenkorb-Seite rendern */
+
 function renderCartPage() {
     const cartContainer = document.getElementById("cart-container");
     const cart = getCartFromStorage();
@@ -122,9 +119,9 @@ function renderCartPage() {
     cartContainer.innerHTML = html;
 }
 
-// ==========================================
-// LOGIK: KASSEN-ÜBERSICHT RENDERN
-// ==========================================
+
+/* Kassen-Seite rendern */
+
 function renderCheckoutSummary() {
     const summaryContainer = document.getElementById("checkout-summary");
     const totalContainer = document.getElementById("checkout-total");
@@ -140,7 +137,6 @@ function renderCheckoutSummary() {
     let total = 0;
 
     cart.forEach(item => {
-        // REPARIERT: Nutzt jetzt die neue, sichere Umwandlungsfunktion
         total += parsePriceToFloat(item.price);
 
         html += `
@@ -159,9 +155,8 @@ function renderCheckoutSummary() {
     }
 }
 
-// ==========================================
-// HILFSFUNKTIONEN (STORAGE & UTILS)
-// ==========================================
+
+/* Hilfsfunktionen für den Warenkorb (storage and utils) */
 function getCartFromStorage() {
     const cart = localStorage.getItem("gems_cart");
     return cart ? JSON.parse(cart) : [];
@@ -191,9 +186,7 @@ function updateCartBadge() {
     });
 }
 
-// ==========================================
-// LOGIK: KAUFABSCHLUSS & WARENKORB LEEREN
-// ==========================================
+/* Kaufabschluss und Warenkorb leeren */
 function handleCheckout(event) {
     event.preventDefault(); 
 

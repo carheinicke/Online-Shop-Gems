@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dein Warenkorb | Gems</title>
-    <!-- Lädt deine globale CSS für Header/Footer/Hintergrund -->
+    <!-- Lädt globale CSS für Header/Footer/Hintergrund -->
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" type="image/png" href="../img/favicon.png">
 </head>
@@ -55,8 +55,8 @@
     <!-- Hauptinhalt des Warenkorbs -->
     <main class="contact-main" style="max-width: 800px;">
         <h1 class="contact-title">Dein Warenkorb</h1>
-        
-        <!-- WICHTIG: In diesen Container baut cart.js deine Produkte und die Summe ein -->
+
+        <!-- Container für Produkte und die Summe durch JS -->
         <div id="cart-container" style="background: #f8eee3; padding: 40px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
             <p style="color: #4a3b35; text-align: center; font-size: 1.2rem; font-style: italic;">
                 Warenkorb wird geladen...
@@ -74,7 +74,6 @@
         <p>&copy; 2026 Gems Schmuck. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- Bindet deine Warenkorb-Logik ein (Liegt im selben Ordner 'pages') -->
     <script src="cart.js"></script>
 </body>
 </html>

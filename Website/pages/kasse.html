@@ -1,17 +1,16 @@
-<!--Reines HTML & CSS (Ohne JavaScript)Du kannst Filter komplett ohne Programmierlogik bauen, indem du CSS-Techniken wie das :checked-Attribut von Checkboxen oder Radio-Buttons nutzt.Wie es funktioniert: Jedes Produkt bekommt im HTML bestimmte Klassen (z. B. class="produkt ring" oder class="produkt silber"). Wenn ein Kunde auf den Filter „Ringe“ klickt, blendet das CSS über Selektoren alle Elemente aus, die diese Klasse nicht haben.Vorteil: Extrem schnell, unkompliziert zu schreiben und du musst keine neue Sprache lernen.Nachteil: Bei sehr vielen Produkten (über 50–100) wird der HTML-Code irgendwann unübersichtlich.-->
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kasse | Gems</title>
-    <!-- Lädt deine globale CSS für Header/Footer/Hintergrund -->
+    <!-- Lädt globale CSS für Header/Footer/Hintergrund -->
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" type="image/png" href="../img/favicon.png">
 </head>
 <body>
 
-    <!-- Header / Menüleiste (Korrigiert innerhalb des Bodys) -->
+    <!-- Header / Menüleiste-->
     <header class="header">
         <img src="../img/favicon.png" class="logo" alt="Gems Logo">
         
@@ -57,7 +56,7 @@
     <main class="contact-main" style="max-width: 900px;">
         <h1 class="contact-title">Bestellung abschließen</h1>
         
-        <!-- Wir nutzen hier das zweispaltige Grid deiner Kontaktseite für ein harmonisches Design -->
+        <!-- Zweispaltige Grid für ein harmonisches Design -->
         <div class="contact-wrapper" style="grid-template-columns: 1.2fr 1fr;">
             
             <!-- Linke Spalte: Rechnungs- & Lieferadresse -->
@@ -104,7 +103,7 @@
             <div class="contact-info-box" style="opacity: 1; animation: none;">
                 <h2 style="margin-top: 0;">Deine Bestellung</h2>
                 
-                <!-- Dieser Container wird später per JS mit den Produkten befüllt -->
+                <!-- Container wird später durch JS mit den Produkten befüllt -->
                 <div id="checkout-summary" style="margin-bottom: 20px;">
                     <p style="font-style: italic;">Warenkorb wird geladen...</p>
                 </div>

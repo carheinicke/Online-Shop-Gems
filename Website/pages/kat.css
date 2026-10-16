@@ -1,6 +1,4 @@
-/* ==========================================
-   CSS FÜR DIE MATERIAL-KATEGORIEN (kat.css)
-   ========================================== */
+/* CSS für die Material-Kategprien (gold, silver, steel)*/
 
 .category-main {
   padding: 40px;
@@ -15,7 +13,7 @@
   margin-bottom: 25px;
 }
 
-/* Unterkategorie-Filter (Ohrringe, Ketten, etc.) */
+/* Unterkategorie-Filter (Ohrringe, Ketten, Halsketten, Armschmuck) */
 .sub-filter-container {
   display: flex;
   justify-content: center;
@@ -42,7 +40,7 @@
   box-shadow: 0 6px 12px rgba(70, 50, 40, 0.12);
 }
 
-/* Flexibles Produkt-Raster für Kategorien */
+
 .kat-product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -50,12 +48,12 @@
   justify-items: center;
 }
 
-/* Nutzung deiner bestehenden Einroll-Animation gestaffelt für Kategorien */
+/*Einroll-Animation gestaffelt für Kategorien */
 .kat-product-grid .product-card {
   opacity: 0;
   animation: rollOutFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   
-  /* Definiert den flüssigen Übergang für das neue Luxus-Hovern */
+  /* Flüssiger Übergang für das Hovern */
   border: 3px solid transparent;
   transition: 
     transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
@@ -74,9 +72,6 @@
   transform: translateY(-8px);
 }
 
-/* ==========================================
-   NEU: GETRENNTE METALLIC-HOVER FÜR DIE KATEGORIEN
-   ========================================== */
 
 /* Gold-Seite Hover (Warmes Gold-Glühen) */
 .kat-gold .product-card:hover {
@@ -88,7 +83,7 @@
     0 15px 30px rgba(70, 50, 40, 0.2); 
 }
 
-/* Silber-Seite Hover (Kühler, weiß-silberner Diamant-Glow) */
+/* Silber-Seite Hover */
 .kat-silver .product-card:hover {
   border-color: #e0e0e0;
   filter: brightness(1.12) contrast(1.05); 
@@ -98,7 +93,7 @@
     0 15px 30px rgba(40, 45, 50, 0.2); 
 }
 
-/* Steel-Seite Hover (Dunkler, moderner Anthrazit-Stahl-Glow) */
+/* Steel-Seite Hover */
 .kat-steel .product-card:hover {
   border-color: #a1b5cc;
   filter: brightness(1.06) contrast(1.03); 
@@ -108,12 +103,12 @@
     0 15px 30px rgba(30, 35, 40, 0.22); 
 }
 
-/* Verleiht den Produkttiteln beim Hovern feine Tiefe */
+/* Tiefe beim Hovern über Produktnamen */
 .kat-product-grid .product-card:hover .product-info h3 {
   text-shadow: 0 2px 4px rgba(70, 50, 40, 0.1);
 }
 
-/* Responsive Optimierung für kleinere Bildschirme */
+/* Für kleinere Bildschirme */
 @media (max-width: 600px) {
   .category-main {
     padding: 20px 15px;
